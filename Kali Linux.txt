@@ -1,0 +1,137 @@
+Commands for Kali Linux
+1-whoami   asif
+2-who      full detail asif time date etc
+3-users	   users in use
+4-uname    Kali
+5-uname -r -a  full detail about kali linux 
+6-ls -r -a 
+7-ls -R (in vertical order)
+8-man ls (to view all parameters about a command)
+9-lsblk (to view the hierarchy of disk allocated for OS)
+10-df (also show info about free used space of disk
+11- cal (to view the calendar)
+12-date (to view the current date)
+13-wget www.youtube.com (to downlowd the .html file of home page of that site)
+14-mkdir asif 
+15-touch asif.txt
+16-type > asif.txt
+17-echo i am brother of kashif > kashi.txt  (it write the text inside the file)
+18- cat ./kashi.txt  (it will display text inside the file)
+19-cp ./asif.txt "kashi" or cp ./asif ./home/desktop/queen
+20- mv ./asif.txtt "kashi" or mv ./asif.txt /home/desktop/queen
+21- mv ./asif.txt ./quee.jpg  (for rename the file )
+22- rm ./asif.txt  (remove file
+23- rmdir .queen (to remove directory)
+24- sudo ifconfig (to view the info about network
+25- dig gitgub.com (to view the info about domain or info about IP)
+26-top (to view all top running proceses) 
+27- kill 3299  (to kill process)
+28-figlet asif (to show a very big test )
+29-yes asif (to run a loop it will print asif untill quit
+30-factor 3232 (it will calculate the factor of value)
+31-man shutdown (to viw all commands about shutdown )
+32-sudo shutdown now -r (to restart 
+33-sudo shutdown now -s  (to shutdown now )
+34-/ (to move to the root folder ) but cd .. only take one step back 
+Note: ~ shows the normal user and / shows the root user 
+DIrectory Tree hierarchy 
+35-history (to view all the used commands(_
+36-history (to clear all commands previous used)
+
+USers in LInux vs window 
+Normal User  Standard user  (be default)
+Su/root user admin user
+Guest user  Service user
+
+
+37- sudo adduser (to add new user enter passwrod etc)    users command
+38- cat /etc/passwd (to check info about new added user)
+39- head -4 /etc/passwd (to check into about user only first 4 lines)(
+40- tail -n 4 cat /etc/passwd (to check only 4 last lines )
+41- sudo cat /etc/shadow ( to view the passworld of new created user)
+
+Another way to make a user 
+
+42-sudo adduser -d /home/ -s /bin/bash -p 5440zahoor HappyJutt (to create user)
+
+To Create groups 
+43-sudo addgroup gp1 (to create a new group)
+44-cat /etc/group  (to view info about group)
+45- sudo usermod -g gp1 HappyJutt (to add user in group)
+46- groups HappyJutt (to view user grp)
+47- sudo groupdel gp1 ( to delele the group)
+48-sudo userdel -rf HappyJutt (to delete user)
+
+ Permissions in LInxu:
+there are three types of perimssions : read write execute for root noraml and guest user
+value of read 1 value of write 2 and execute have 4
+49-ls -la ((to view the list of permsisionS)
+50-chmod +730 permission.txt (to change user permission) 
+51-chmod -730 permissionSample.txt (to remove all permissions)
+52-chmod +730 permissionSmaple.txt (to again assign permissions)
+
+How to enable root user:
+53-sudo passwd root
+
+How to install packages in Linix:
+sudo app-get install espeak
+sudo apt install xcowsay
+sudo apt install cowthink 
+sudo apt install sl (to show train) 
+sudo apt install cmartix
+
+git clone "clone url of zphisher"
+cd /zphisher
+bash zphisher.sh
+
+phishing attacks to extract someone date by sending him fake link
+git clone "clone of hiddeneye"
+cd hiddeneye
+pip3 install -r requirements.txt
+python3 HiddenEye.py
+
+stenography (hide one file in another file for own privacy to share own date
+only ubunt user can extract it with steghide and with passwork)
+sudo apt install steghide 
+steghide --embed -ef asif.txt -cf car.jpeg -sf bw.jpeg -e none -p 12345
+
+keeloger (use to view the pressed key of user )
+sudo git clone "url of simple-key-logger"
+sudo chmod +777 simple-key-logger
+cd /simple-key-logger
+make
+sudo ./skeylogger
+(open fb and write username and passwd and then go to file system and go to var file and
+then log and check inside the skeylogger to view that passwork)
+steghide --extracr -sf bw.jpeg 
+
+  
+NMAP (network MAP to know all info about network or websites servers ports etc)
+sudo apt install nmap
+sudo apt install net-tools
+sudo ifconfig
+nmap -sP 127.0.0.1/24  (IP/network Mask sP mean Ping scan)
+sudo su (goto super user)
+nmap -sS -A 127.0.0.1/24   (sS port scanning)
+nmap -p 1-10000 -sP -sS -T4 irctc.co.in  (info about irctc website)
+
+
+Bash Scripting in liux:
+to make a script or lines of code that are raedy to make our work which we do repeatdly 
+to make script file :
+nano script.sh
+
+#!/bin/bash
+
+cd Desktop
+mkdir asif
+cd asif
+mkdir kashif
+echo i am kashif > kashif.txt
+mkdir saqib
+cd saqib
+echo i am saqib > saqib.txt 
+
+ctr + X to exit from file
+sudo chomod +777 ./script.sh
+./script.sh (it will execite the script and then make the hirarch according to script)

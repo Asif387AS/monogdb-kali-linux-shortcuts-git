@@ -1,0 +1,181 @@
+$ git config --global user.name "Asif Zahoor"
+$ git config --global user.email "asifalikodhanjutt3@gmail.com"
+error: key does not contain a section: list
+$ git config user.name
+Asif Zahoor
+$ git config user.email
+asifalikodhanjutt3@gmail.com
+$ git config --global core.editor emac
+$ git config --global core.editor vim
+lect#4 our first git project
+git status  (no git repository)
+git init (to initialize the new git rep) 
+git add --aa (to send fles in staging area)
+git commit -m "first commit"  (to send files in commit area and it like that we take a snapshot of files )
+git status
+git log (to check how many commits are done )
+after doing some changing in files first.txt and myexcel xlsx
+git add first.txt (we want only stage first.txt 
+git commit -m "change first.txt and done some better design"
+git status
+now in similar way we can add commint and stage remaining files 
+
+
+LECTUURE#14
+ALIAS IN GIT 
+alias are used to make the short form of a big commad like we can write st instead of status  using follwing command.
+$ git config --global alias.st status
+same like that :
+$ git config --global alias.cm commit
+$ git config --global alias.unstage restore
+$ git config --global alias.last 'log -p -1'
+
+
+
+
+
+$ git config --global alias.cm commit
+
+
+LECTURE #7
+git status
+touch error.log (it will create a new file ) we do not want that this file disturn us bcz it is create auto in any program
+and now make .gitignore file and add error.log in it 
+touch .gitignore (add error.log in .gitignore
+git status .
+git commit -m ".gitignore added "
+
+now if we have multiple .log files then we add it in .gitignore by writing *.log in .gitignore
+now again process to stage and commit it 
+
+
+now make a new dir namic folder and make a new folder static and make a new dir namic folder and add it in .gitignore file 
+and git will here ignore all dir directories and all files in dir changes will not affect the git 
+same staging and commit process repeat again 
+
+we can ignore static/dir 
+if we write /dire/ then it will only ignore outer dir and if wrote dir/ then all dir files will ignore 
+
+cloning in git letct#5
+rm -rf .git (it will delete the git repository which we have made )
+now goto tensor flow git repository and clone their git repository and copy it and make a new repos again by pasting this copies link
+git clone "paste link here" (it will clone the tensor flow git rep
+pwd (present working directory ) in git girectory 
+ls (list) it will show all files we have created like myexcel.xlsx
+cd (current directory)tensorflow/ (it will move to tensor flow directory )
+pwd (now in tensor flow directory
+ls (list in tensor flow file
+                                      change the read me file in tensor flow folder 
+git status 
+git add --a
+git commit
+git status  
+git log (to view changed history)
+
+
+
+LECT#8
+git diff command compare the working directory with staging area 
+jo bhi working area ma changes kiye unko show krta ha stagging sy phly 
+git diff --staged command compare previous commit with new stagging area
+jo bhi last commit sy phly changes kiye thy unko btata ha 
+
+LECT# 9
+git commit -a -m "Direct commit"
+this command is used to commit the files without using or skiping the staging area 
+NOTE: this will not apply for untracked files (untracked files area those which are newly created )
+it will not commit untracked files directly it will commit only those files which are already in stagging area and we change it 
+
+LECT#10
+we can rename the file manually git will consider that that file is reomved and new files added if rename ''
+but but with the help of git do below:
+git mv second.txt first_renamed.txt (it will move the content of old file to new and auto stage it ::::this is rename command
+
+TO DLELTE THE FILE IN git :
+git rm second.txt
+This command wil remove the second.txt and stage it automatically 
+
+if we add a file db.accdb in .gitignore directory and then we seee that the changes done in  this file db.accdb are showing 
+still this has the reason that actually this file is alreay in staging area now we have to make it untrcaked 
+by using this command :
+git rm --cached db.accdb  (it is not actually deleted )
+NOTE: we always add the untracked file in .gitignore folder :TO untracke any file we use above command 
+
+LECT#11
+git log -p (to view all the commit and also view that which content is deleted and which is added
+git log -p -3 (it will display only first 3 commit with highlights the deleted and added lines alongwith thier diff
+git log --stat  (it will display  the short summary of commits)
+git log --pretty=oneline(it will display all the commits in one line with pretty form 
+git log --pretty=short (it will display all the commits in short form 
+git log --pretty=full    (it will display all the commit in full from 
+git log --since=3days (to view the commits of last 3 days 
+git log --since=3weeks (to view the commits of last 3 weeks
+git log --since=3months (to view the commits of last 3 weeks 
+git log pretty=format:"%h --%an" (to format the git commit
+git commit --amend (it is used to edit the commit of someone and add your commit with him mean show the commit of you and me 
+with same time mean join the commit 
+
+
+LECT#12
+UNSTAGE THE STAGING FILE
+git restore --staged first.txt (if you want to restore the staged file you can use this command )
+git checkout --first.txt (if accidently you delete the file or its content then you can run this command to
+                                 bring in the originl position it is apply for the unstage file if you stage this change 
+                                 then this command will not work and you have to unstage it by using git restore --staged
+                                 command 
+git checkout -f : this command is used after the staging the changes and this will lead to user previos commit 
+it mean that all chnages will recover and working tree will empty 
+DIF BTW GIT CHECKOUT -F AND GIT CHECKOUT --FIRST.TXT AND GIT RESTORE --STAGED FIRST.TXT:
+git checkout --first.txt will use before the staging area and will recover all changes and will lead to prev commit
+git checkout -f this is used after staging area and will recover all changes and will lead to prev commit 
+git restore --staged first.txt it will use after staging area and will simple unstage the chnages but not recove the 
+changes and not go to prev commit 
+
+LECT#13
+working with remote repository
+git remote (to check there is any website like github where we make repos filhaal koi ni ha
+git remote add origin https://github.com/Asif387AS/codewithasif1.git (this command will add the website where where we
+push file and pull 
+git remote -v (this will show that you can pull or push the data on this github
+git branch -M main
+git push -u origin main
+
+now create a ssh key using these commands to push or pull the code :
+ssh-keygen -t ed25519 -C "asifalikodhanjutt3@gmail.com"
+eval "$(ssh-agent -s)"
+agen pid 681
+$ ssh-add ~/.ssh/id_ed25519  (use this command this will genrate the ssh key copy this ssh and paste in the place of ssh key
+tail ~/.ssh/id_ed25519.pub
+git push -u origin main (it will push the files at github
+
+LECT#14
+BRANCHING IN GIT
+Actually we are in master branch now we can more branches from this master branch 
+git checkout -b develop (it is use to create a new branch develop
+git checkout master (it will switch to the master branch again
+git branch (to checkout the how many branches in git 
+git branch -v (completer info about branche
+
+LECT#15
+MERGE THE CAHNGES IN MASTER BRANCH FROM DEVELP BRANCH
+git merge develop (it will merge tha changes in maseter branch which are done by using develop branch
+the changes in one sub branches not affect the main branch or one branch change not affect the other branch
+
+LECT#16
+SOME CONFLITCTS IN MERGING THE BRANCHES HOW TO FIX THEM :
+git branch merge develop
+you will saw a conflict message that's reason is that last commit in master branch and last commit in develop branch will conflit and VS code say that
+which commit you will keep incomming or current or both? we will keep incoming commit which is in develop branch its depends upon you 
+then you will run these commands :
+git add .
+git commit -m "resolved"
+
+MERGED AND NON MERGED BRANCH
+git branch 
+git branch -v
+git branch --merged (DISPLAY ALL MERGED BRANCHES 
+git branch --no-merged (DISPLAY ALL NON MERGED BRANCEHS
+
+DELETE BRANCHES
+git branch -d develop (DELETE THE DEVELOP BRANCH WHICH IS MERGED IT IS BETTER TO DELETE THE BRANCH AFTER MERGE
+git branch -d develop2 (it will warn that this unmerged branch data can lost you should not delete this branch 

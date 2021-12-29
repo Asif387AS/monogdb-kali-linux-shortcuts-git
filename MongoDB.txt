@@ -1,0 +1,110 @@
+Commands for MongoDB Database:
+how all databases:
+show dbs 
+
+to create a new database or switch to any database:
+use comments 
+
+to view current database :
+db
+
+to delete any database: to delete current used database 
+db.dropDatabase()
+
+Collection related commands:
+To view all collections:
+show collections
+
+To create new collection in current database :
+db.createCollection("comments")
+
+To delete a collection in mongodb:
+db.CollectionName.drop()
+
+MongoDB Row Commands:
+insert Many rows:
+To view all rows in a collection:
+db.comments.find()
+
+To find first matching element in collectio:
+db.comments.findOne({name:'Asif'})  use after inserting elemenet in collection 
+
+To view all ronw in prettified form:
+db.comments.find().pretty()
+
+insert ONE row:
+db.comments.insert({
+    'name':'Asif',
+    'lang':'javascript',
+    'teacher':'harry bhai',
+    'aim':'to become web developer'
+})
+
+db.comments.insertMany([
+    {
+    'name':'Asif',
+    'lang':'javascript',
+    'teacher':'harry bhai',
+    'aim':'to become web developer'
+    },
+    {
+    'name':'Quiin',
+    'lang':'python',
+    'teacher':'harry bhai',
+    'aim':'to become web developer'
+    },
+    {
+    'name':'churail',
+    'lang':'Java',
+    'teacher':'harry bhai',
+    'aim':'to become android developer'
+    },
+])
+
+TO search a row in MongoDB:
+db.comments.find({name:'churail',lang:'Java'})
+db.comments.find({name:'churail',lang:'Java'}).pretty()
+
+TO view only limited results in output from collection:
+db.comments.find().pretty().limit(2)
+db.comments.find({name:'churail',lang:'Java'}).pretty().limit(2)
+
+To count the number of row in a collection:
+db.comments.find().pretty().limit(2).count()
+db.comments.find().pretty().count()
+db.comments.find({name:'Asif',lang:'javascript'}).pretty().limit(2).count()
+
+To sort the rows in ascending or descending order:
+db.comments.find().pretty().sort({name:1})    in ascending order
+db.comments.find().pretty().sort({name:-1})   in descending oreder
+
+To update  document in collection:
+db.comments.update({name:'Asif'},{
+       'name':'asif',
+    'lang':'python',
+    'teacher':'harry bhai',
+    'aim':'to become data scientist'
+})
+update and insert the entry if not matching result found:
+db.comments.update({name:'sham3'},{
+       'name':'tiddiii',
+    'lang':'python',
+    'teacher':'harry bhai',
+    'aim':'to become data scientist',
+    'member_since':3
+},{upsert:true})
+
+Increment operator in mongodb:
+ db.comments.update({name:'tiddiii'},{$inc:{member_since:2}})
+
+Increment operator in mongodb:
+ db.comments.update({$rename:{member_since:'member'}})
+ db.comments.update({name:'tiddiii'},{$rename:{member_since:'member'}})
+
+
+To Remove documents from collection:
+db.comments.remove({name:'churail'})
+
+Less than ,equal to , less than or equal to , greater than or equal to ,not equal to 
+db.comments.find({member:{$lt:90}})
+db.comments.find({member:{$gt:2}})
